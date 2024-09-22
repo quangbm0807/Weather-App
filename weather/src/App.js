@@ -12,7 +12,7 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchWeatherData = async (location = 'Hanoi') => {
+  const fetchWeatherData = async (location = 'Ho Chi Minh') => {
     setLoading(true);
     try {
       const response = await axios.get(
