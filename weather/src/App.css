@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+/* Base styles */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.weather-card {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dark-mode .weather-card {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme toggle button styles */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.theme-toggle-btn:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn.light {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.theme-toggle-btn.dark {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.icon-container {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.sun,
+.moon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.sun {
+  color: #f39c12;
+  transform: translateY(0) rotate(0deg);
+}
+
+.moon {
+  color: #f1c40f;
+  transform: translateY(100%) rotate(90deg);
+  opacity: 0;
+}
+
+.theme-toggle-btn.dark .sun {
+  transform: translateY(-100%) rotate(-90deg);
+  opacity: 0;
+}
+
+.theme-toggle-btn.dark .moon {
+  transform: translateY(0) rotate(0deg);
+  opacity: 1;
+}
+
+/* Additional animations for other elements */
+.card-title,
+.card-subtitle,
+.temperature,
+.card-text,
+.card-footer {
+  transition: color 0.3s ease;
+}
+
+.dark-mode .card-title {
+  color: #ffffff;
+}
+
+.dark-mode .card-subtitle,
+.dark-mode .text-muted {
+  color: #b0b0b0 !important;
+}
+
+.dark-mode .temperature {
+  color: #4cd3c2;
+}
+
+.dark-mode .card-text {
+  color: #e0e0e0;
+}
+
+.dark-mode .card-footer {
+  background-color: #222222;
+  border-top: 1px solid #3a3a3a;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Smooth transition for icons */
+.lucide-icon {
+  transition: color 0.3s ease;
+}
+
+.dark-mode .lucide-icon {
+  color: #b0b0b0;
+}
+
+/* Add a subtle animation to the weather icon */
+.weather-icon {
+  transition: transform 0.3s ease;
+}
+
+.weather-icon:hover {
+  transform: scale(1.1) rotate(5deg);
 }
