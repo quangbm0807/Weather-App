@@ -1,0 +1,30 @@
+.weather-card {
+  transition: background-image 0.5s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.weather-card.clear-sky {
+  background-image: url('./19492.gif');
+}
+
+.weather-card.cloudy {
+  background-image: url('https://64.media.tumblr.com/00fb7ae4fcf9aa9aefff6b460f23a7a8/f95c3a969181a52d-f9/s500x750/25ab1e34e454f2a39f550b50c316828a59d39bb1.gifv');
+}
+
+.weather-card.rainy {
+  background-image: url('./icegif-469.gif');
+}
+
+.weather-card.snowy {
+  background-image: url('./icegif-1331.gif');
+}
+
+.weather-card.thunderstorm {
+  background-image: url('https://media1.tenor.com/m/DuUxCxFcs3IAAAAC/sky-clouds.gif');
+}
+
+.weather-card.foggy {
+  background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjV0MTltNGRzdGwwNmp2eXg4dHNxam9sa3psZW9xcWpxajhldXM2ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26xBwlGgyeQjxx09G/giphy.webp');
+}

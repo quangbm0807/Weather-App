@@ -1,6 +1,8 @@
 import React from 'react';
 import { Cloud, Droplet, Wind, Sunrise, Sunset, Eye } from 'lucide-react';
 import { Card, Col, Row } from 'react-bootstrap';
+import './styles.css'; // Import CSS file
+
 const WeatherIcon = ({ iconCode }) => {
   const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
   return <img src={iconUrl} alt="Weather icon" className="weather-icon" />;
@@ -8,12 +10,31 @@ const WeatherIcon = ({ iconCode }) => {
 
 const WeatherCard = ({ weatherData, isDarkMode }) => {
   const { name, sys, main, weather, wind, clouds, dt, visibility } = weatherData;
-  
+
   const formatTime = (timestamp) => {
     return new Date(timestamp * 1000).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
   };
 
-  const cardClassName = `mb-4 weather-card ${isDarkMode ? 'dark-mode' : ''}`;
+  const getBackgroundClass = () => {
+    switch (weather[0].main) {
+      case 'Clear':
+        return 'clear-sky';
+      case 'Clouds':
+        return 'cloudy';
+      case 'Rain':
+        return 'rainy';
+      case 'Snow':
+        return 'snowy';
+      case 'Thunderstorm':
+        return 'thunderstorm';
+      case 'Fog':
+        return 'foggy';
+      default:
+        return '';
+    }
+  };
+
+  const cardClassName = `mb-4 weather-card ${getBackgroundClass()} ${isDarkMode ? 'dark-mode' : ''}`;
 
   return (
     <Card className={cardClassName}>

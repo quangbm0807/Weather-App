@@ -7,7 +7,6 @@ import { Image, message } from 'antd';
 import { Moon, Sun } from 'lucide-react';
 import './App.css';
 const API_KEY = '60e470ab19c539299b136b3ad543a067';
-
 const ThemeToggle = ({ isDarkMode, toggleTheme }) => {
   return (
     <button
